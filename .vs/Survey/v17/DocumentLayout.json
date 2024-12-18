@@ -1,0 +1,93 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\HP\\source\\repos\\Survey_API\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F9BA3222-CADB-4D91-A569-BAC485B9BC84}|Survey\\Survey.csproj|c:\\users\\hp\\source\\repos\\survey_api\\survey\\controllers\\resultscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9BA3222-CADB-4D91-A569-BAC485B9BC84}|Survey\\Survey.csproj|solutionrelative:survey\\controllers\\resultscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9BA3222-CADB-4D91-A569-BAC485B9BC84}|Survey\\Survey.csproj|c:\\users\\hp\\source\\repos\\survey_api\\survey\\contracts\\result\\voteperdayresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9BA3222-CADB-4D91-A569-BAC485B9BC84}|Survey\\Survey.csproj|solutionrelative:survey\\contracts\\result\\voteperdayresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9BA3222-CADB-4D91-A569-BAC485B9BC84}|Survey\\Survey.csproj|c:\\users\\hp\\source\\repos\\survey_api\\survey\\services\\resultservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9BA3222-CADB-4D91-A569-BAC485B9BC84}|Survey\\Survey.csproj|solutionrelative:survey\\services\\resultservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9BA3222-CADB-4D91-A569-BAC485B9BC84}|Survey\\Survey.csproj|c:\\users\\hp\\source\\repos\\survey_api\\survey\\services\\iresultservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9BA3222-CADB-4D91-A569-BAC485B9BC84}|Survey\\Survey.csproj|solutionrelative:survey\\services\\iresultservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ResultService.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Survey_API\\Survey\\Services\\ResultService.cs",
+              "RelativeDocumentMoniker": "Survey\\Services\\ResultService.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\Survey_API\\Survey\\Services\\ResultService.cs",
+              "RelativeToolTip": "Survey\\Services\\ResultService.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABgAAABQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T18:48:11.525Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IResultService.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Survey_API\\Survey\\Services\\IResultService.cs",
+              "RelativeDocumentMoniker": "Survey\\Services\\IResultService.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\Survey_API\\Survey\\Services\\IResultService.cs",
+              "RelativeToolTip": "Survey\\Services\\IResultService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAB7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T18:46:39.792Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "VotePerDayResponse.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Survey_API\\Survey\\Contracts\\Result\\VotePerDayResponse.cs",
+              "RelativeDocumentMoniker": "Survey\\Contracts\\Result\\VotePerDayResponse.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\Survey_API\\Survey\\Contracts\\Result\\VotePerDayResponse.cs",
+              "RelativeToolTip": "Survey\\Contracts\\Result\\VotePerDayResponse.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T18:44:43.403Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ResultsController.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Survey_API\\Survey\\Controllers\\ResultsController.cs",
+              "RelativeDocumentMoniker": "Survey\\Controllers\\ResultsController.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\Survey_API\\Survey\\Controllers\\ResultsController.cs",
+              "RelativeToolTip": "Survey\\Controllers\\ResultsController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAABMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T17:19:51.227Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
