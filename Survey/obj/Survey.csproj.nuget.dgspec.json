@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\Source\\Repos\\Survey_API\\Survey\\Survey.csproj": {}
+    "C:\\Users\\HP\\source\\repos\\Survey_API\\Survey\\Survey.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\Source\\Repos\\Survey_API\\Survey\\Survey.csproj": {
+    "C:\\Users\\HP\\source\\repos\\Survey_API\\Survey\\Survey.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Source\\Repos\\Survey_API\\Survey\\Survey.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\source\\repos\\Survey_API\\Survey\\Survey.csproj",
         "projectName": "Survey",
-        "projectPath": "C:\\Users\\HP\\Source\\Repos\\Survey_API\\Survey\\Survey.csproj",
+        "projectPath": "C:\\Users\\HP\\source\\repos\\Survey_API\\Survey\\Survey.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Source\\Repos\\Survey_API\\Survey\\obj\\",
+        "outputPath": "C:\\Users\\HP\\source\\repos\\Survey_API\\Survey\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

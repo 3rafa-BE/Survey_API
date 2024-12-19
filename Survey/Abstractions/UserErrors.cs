@@ -8,7 +8,9 @@
     public class PollErrors
     {
         public static readonly Error PollNotFound =
-            new Error("Poll.NotFound", "No poll was found by this id" , StatusCodes.Status404NotFound);
+            new Error("Poll.NotFound", "No poll was found by this id", StatusCodes.Status404NotFound);
+        public static readonly Error DuplicatedPoll =
+            new Error("Duplicate Content", "there is an exixted Poll has the same Tittle", StatusCodes.Status409Conflict);
     }
     public class TokenErrors
     {

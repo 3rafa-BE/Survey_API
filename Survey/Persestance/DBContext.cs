@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Survey.Abstractions;
+using Survey.Contracts.Poll;
 using Survey.Models;
 using System.Reflection;
 using System.Security.Claims;
@@ -18,6 +19,7 @@ namespace Survey.Persestance
         public DbSet<VoteAnswers> voteAnswers { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(PollRequest).Assembly);
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             var CascadeFks = modelBuilder.Model.GetEntityTypes()
                 .SelectMany(fk => fk.GetForeignKeys())

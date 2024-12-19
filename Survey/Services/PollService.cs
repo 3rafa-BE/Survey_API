@@ -32,24 +32,35 @@ namespace Survey.Services
         
         public async Task<Result<PollResponse>> AddAsync(PollRequest request, CancellationToken cancellationToken)
         {
-            var isExistedTittle = await _dbContext.polls.AnyAsync(x => x.Title == request.Title);
-            if (isExistedTittle)
-               return Result.Failure<PollResponse>(DuplicateTittleErrors.DuplicatedTittle);
-            var poll = request.Adapt<PollRequest>();
-            await _dbContext.AddAsync(poll , cancellationToken);
+            //var isExistedTittle = await _dbContext.polls.AnyAsync(x => x.Title == request.Title);
+            //if (isExistedTittle)
+            //   return Result.Failure<PollResponse>(DuplicateTittleErrors.DuplicatedTittle);
+            //var poll = request.Adapt<PollRequest>();
+            //await _dbContext.AddAsync(poll , cancellationToken);
+            //await _dbContext.SaveChangesAsync(cancellationToken);
+            //return Result.Success(poll.Adapt<PollResponse>());
+            var isExistingTitle = await _dbContext.polls.AnyAsync(x => x.Title == request.Title, cancellationToken: cancellationToken);
+
+            if (isExistingTitle)
+                return Result.Failure<PollResponse>(PollErrors.DuplicatedPoll);
+
+            var poll = request.Adapt<Poll>();
+
+            await _dbContext.AddAsync(poll, cancellationToken);
             await _dbContext.SaveChangesAsync(cancellationToken);
+
             return Result.Success(poll.Adapt<PollResponse>());
         }
 
         public async Task<Result> UpdateAsync(int id, PollRequest request, CancellationToken cancellationToken)
         {
-            var isExistedTittle = await _dbContext.polls.AnyAsync(x => x.Title == request.Title && x.Id != request.id);
+            var isExistedTittle = await _dbContext.polls.AnyAsync(x => x.Title == request.Title && x.Id != request.Id);
             if (isExistedTittle)
                 return Result.Failure<PollResponse>(DuplicateTittleErrors.DuplicatedTittle);
             var currentPoll = await _dbContext.polls.FindAsync(id);
             if (currentPoll is null)
                 return Result.Failure(PollErrors.PollNotFound);
-            var poll = request.Adapt<PollRequest>();
+            var poll = request.Adapt<Poll>();
             currentPoll.Title = poll.Title;
             currentPoll.Summary = poll.Summary;
             currentPoll.StartsAt = poll.StartsAt;
@@ -81,7 +92,5 @@ namespace Survey.Services
             await _dbContext.SaveChangesAsync();
             return Result.Success();
         }
-
-        
     }
 }

@@ -39,7 +39,7 @@ namespace Survey.Controllers
             var result = await _PollServices.AddAsync(request, cancellationToken);
 
             return result.IsSuccess 
-                ? CreatedAtAction(nameof(GetAsync), new { id = result.Value.id }, result.Value)
+                ? Created()
                 : result.ToProblem();
         }
 
