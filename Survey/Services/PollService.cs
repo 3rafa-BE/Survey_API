@@ -32,13 +32,6 @@ namespace Survey.Services
         
         public async Task<Result<PollResponse>> AddAsync(PollRequest request, CancellationToken cancellationToken)
         {
-            //var isExistedTittle = await _dbContext.polls.AnyAsync(x => x.Title == request.Title);
-            //if (isExistedTittle)
-            //   return Result.Failure<PollResponse>(DuplicateTittleErrors.DuplicatedTittle);
-            //var poll = request.Adapt<PollRequest>();
-            //await _dbContext.AddAsync(poll , cancellationToken);
-            //await _dbContext.SaveChangesAsync(cancellationToken);
-            //return Result.Success(poll.Adapt<PollResponse>());
             var isExistingTitle = await _dbContext.polls.AnyAsync(x => x.Title == request.Title, cancellationToken: cancellationToken);
 
             if (isExistingTitle)

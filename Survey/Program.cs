@@ -8,11 +8,14 @@ using Survey;
 using Survey.Models;
 using Microsoft.EntityFrameworkCore;
 using Survey.Persestance;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Host.UseSerilog((context, configuration) =>
+{
+    configuration.ReadFrom.Configuration(context.Configuration);
+});
 builder.Services.AddDependencies(builder.Configuration);
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -26,5 +29,5 @@ app.UseHttpsRedirection();
 app.UseCors();
 app.UseAuthorization();
 app.MapControllers();
-app.UseExceptionHandler(_ => { });
+app.UseExceptionHandler();
 app.Run();

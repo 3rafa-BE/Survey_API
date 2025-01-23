@@ -15,6 +15,7 @@ using Survey.Contracts.Auth;
 using Survey.Abstractions;
 using Microsoft.AspNetCore.Diagnostics;
 using System.Runtime.CompilerServices;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 
 namespace Survey
@@ -33,17 +34,21 @@ namespace Survey
                 AddSwaggerServices()
                 .AddMappsterServices()
                 .AddAuthServices(configuration)
+                .AddDistributedMemoryCache()
                 .AddCORSServices()
                 .AddConfigServices();
 
             services.AddScoped<IPollServices, PollService>();
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IQuestionsServices, QuestionServices>();
+            services.AddScoped<ICacheService, CacheService>();
             services.AddScoped<IVoteService, VoteService>();
             services.AddScoped<IResultService, ResultService>();
+            services.AddScoped<IEmailSender,EmailServices>();
             services.AddExceptionHandler<GlobalExceptionHandeler>();
             services.AddProblemDetails();
-
+            services.AddHttpContextAccessor();
+            services.Configure<MailSettings>(configuration.GetSection(nameof(MailSettings)));
             return services;
         }
         public static IServiceCollection AddSwaggerServices(this IServiceCollection services)
@@ -69,7 +74,8 @@ namespace Survey
         {
             services.AddSingleton<IJwtProvidor, JwtProvidor>();
             services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<DBContext>();
+                .AddEntityFrameworkStores<DBContext>()
+                .AddDefaultTokenProviders();
             services.Configure<JwtOptions>(configuration.GetSection(JwtOptions.SectionName));
             services.AddOptions<JwtOptions>().BindConfiguration(JwtOptions.SectionName).ValidateDataAnnotations().ValidateOnStart();
             var settings = configuration.GetSection(JwtOptions.SectionName).Get<JwtOptions>();
@@ -93,7 +99,12 @@ namespace Survey
                         ValidAudience = settings.Audience
                     };
                 });
-
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequiredLength = 8;
+                options.SignIn.RequireConfirmedEmail = true;
+                options.User.RequireUniqueEmail = true;
+            });
             return services;
         }
         public static IServiceCollection AddCORSServices(this IServiceCollection services)

@@ -15,14 +15,14 @@ namespace Survey.Controllers
         private readonly IQuestionsServices _questionsServices = questionsServices;
         private readonly IVoteService _voteServices = voteService;
 
-        [HttpGet("")]
+        [HttpGet("Get-Available-Votes")]
         public async Task<IActionResult> GetAvailabele([FromRoute] int pollid , CancellationToken cancellationToken)
         {
             var userId = User.GetUserId();
             var result = await _questionsServices.GetAvailableAsync(pollid, userId!, cancellationToken);
             return result.IsSuccess ? Ok(result.Value) : result.ToProblem();
         }
-        [HttpPost("")]
+        [HttpPost("Add-Votes")]
         public async Task<IActionResult> AddAsync([FromRoute] int pollid ,[FromBody] VoteRequest request,CancellationToken cancellationToken)
         {
             var userId = User.GetUserId();

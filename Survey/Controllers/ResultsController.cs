@@ -21,7 +21,13 @@ namespace Survey.Controllers
         [HttpGet("Per-Day")]
         public async Task<IActionResult> VotesPerDay([FromRoute] int pollid, CancellationToken cancellationToken)
         {
-            var result = await _resultService.GetVotePerDayAsybc(pollid, cancellationToken);
+            var result = await _resultService.GetVotePerDayAsync(pollid, cancellationToken);
+            return result.IsSuccess ? Ok(result.Value) : result.ToProblem();
+        }
+        [HttpGet("Per-Question")]
+        public async Task<IActionResult> VotesPerQuestion([FromRoute] int pollid, CancellationToken cancellationToken)
+        {
+            var result = await _resultService.GetVotePerQuestionAsync(pollid, cancellationToken);
             return result.IsSuccess ? Ok(result.Value) : result.ToProblem();
         }
     }

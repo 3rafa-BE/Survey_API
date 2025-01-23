@@ -1,6 +1,7 @@
 ﻿using Mapster;
 using Survey.Contracts.Poll;
 using Survey.Contracts.Question;
+using Survey.Contracts.Register;
 using Survey.Models;
 
 namespace Survey.Mapping
@@ -13,6 +14,8 @@ namespace Survey.Mapping
             config.NewConfig<QuestionRequest, Question>()
                 .Map(dest => dest.Answers, src => src.Answers.Select(answer => new Answer { Content = answer }));
             config.NewConfig<Poll, PollRequest>();
+            config.NewConfig<registerRequest, ApplicationUser>()
+                .Map(dest => dest.UserName, src => src.Email);
         }
     }
 }

@@ -4,6 +4,12 @@
     {
         public static readonly Error InvalidCredentionals =
             new Error("User.InvalidCredentionals", "Invalid Username or password" , StatusCodes.Status401Unauthorized);
+        public static readonly Error DuplicateEmail =
+            new Error("User.DuplicatedEmail", "Another User with the same Email", StatusCodes.Status409Conflict);
+        public static readonly Error EmailNotConfirmed =
+            new Error("User.EmailNotConfirmed", "EmailNotConfirmed", StatusCodes.Status401Unauthorized);
+        public static readonly Error DuplicateConfirmation =
+            new Error("User.DuplicateConfirmation", "This email had been confirmed before", StatusCodes.Status409Conflict);
     }
     public class PollErrors
     {

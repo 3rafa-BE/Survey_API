@@ -10,7 +10,7 @@ namespace Survey.Services
     {
         private readonly DBContext _dBContext = dBContext;
 
-        public async Task<Result<IEnumerable<VotePerDayResponse>>> GetVotePerDayAsybc(int pollid, CancellationToken cancellationToken)
+        public async Task<Result<IEnumerable<VotePerDayResponse>>> GetVotePerDayAsync(int pollid, CancellationToken cancellationToken)
         {
             var pollisExisted = await _dBContext.polls.AnyAsync(x=>x.Id == pollid , cancellationToken);
             if(!pollisExisted)
@@ -23,6 +23,23 @@ namespace Survey.Services
                     g.Count()
                     )).ToListAsync(cancellationToken);
             return Result.Success<IEnumerable<VotePerDayResponse>>(VotesPerDay);
+        }
+
+        public async Task<Result<IEnumerable<VotesPerQuestionResponse>>> GetVotePerQuestionAsync(int pollid, CancellationToken cancellationToken)
+        {
+            var pollisExisted = await _dBContext.polls.AnyAsync(x => x.Id == pollid, cancellationToken);
+            if (!pollisExisted)
+                return Result.Failure<IEnumerable<VotesPerQuestionResponse>>(PollErrors.PollNotFound);
+            var VotesPerQuestion = await _dBContext.voteAnswers
+                .Where(x=>x.Vote.pollid == pollid)
+                .Select(x=> new VotesPerQuestionResponse
+                (x.Question.Content,
+                x.Question.Votes.GroupBy(g=> new {AnswerId = g.AnswerId , AnswerContent = g.Answer.Content})
+                .Select(g => new VotesPerAnswerResponse(
+                    g.Key.AnswerContent,
+                    g.Count()))
+                )).ToListAsync(cancellationToken);
+            return Result.Success<IEnumerable<VotesPerQuestionResponse>>(VotesPerQuestion);
         }
 
         public async Task<Result<PollVoteResponse>> GetVotesAsync(int pollid, CancellationToken cancellationToken)
